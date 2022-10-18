@@ -1,0 +1,69 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+.containerGame {
+    width: 100vw;
+    height: 100vh;  
+    margin: 0 auto;     /* Para centralizar a div. */
+    overflow: hidden;   /* Para tudo que sair da delimitação da div não aparecer na tela. */
+    position: relative;
+    background: linear-gradient(rgb(17, 100, 243), rgb(255, 255, 255) 65%); 
+    border-bottom: 5px solid rgb(4, 159, 43);
+}
+
+.imgTubo {
+    right: 0;
+    bottom: 0;
+    width: 50px;
+    position: absolute;
+    animation: imgTuboAnimation 2s infinite linear; /* Chamando a animação, com o nome, o tempo de duração, tempo de vezes que irá ser processado, e a velocidade de processamento */
+}
+
+.imgMarioBross {
+    width: 110px;
+    bottom: 0;
+    position: absolute;
+}
+
+/* Essa clase será inserida na tag 'img' quando quisermos que o mario pule utilizando Js. */
+.jump {
+    animation: jumpMario 500ms ease-out;
+}
+
+/* Criando animação com a imgTubo.*/
+/* Para usar a animação vamos coloca-lá na classe que define a imagem que neste caso é 'imgTubo'. */
+@keyframes imgTuboAnimation {
+    from {  /* Começa com um valor de 'rigth: 0;'. */
+        right: -50px; /* Inserindo este valor para que a imagem comece de fora da tela da direita para a esquerda.*/ 
+    }
+
+    to {    /* Termina com o valor de 'rigth: 0;'. */
+        right: 100%;
+    }
+}
+
+/* Criando animação com a imgMarioBross.*/
+/* Para usar a animação vamos coloca-lá na classe que define a imagem que neste caso é 'imgMarioBross'. */
+/* Aqui estamos defindo aonde a imagem começa e aonde ela termina a partir da porcetagem inserindo seu valor dentro do bloco durante cada porcentagem pré-determinada.*/
+@keyframes jumpMario {
+    0% {
+        bottom: 0;
+    }
+
+    40% {
+        bottom: 160px;
+    }
+
+    60% {
+        bottom: 160px;
+    }
+
+    100% {
+        bottom: 0;
+    }
+}
